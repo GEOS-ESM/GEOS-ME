@@ -1,0 +1,64 @@
+GEOSgcm:
+  fixture: true
+  develop: main
+
+env:
+  local: ./@env
+  remote: ../ESMA_env.git
+  tag: v4.5.0
+  develop: main
+
+cmake:
+  local: ./@cmake
+  remote: ../ESMA_cmake.git
+  tag: v3.19.0
+  develop: develop
+
+ecbuild:
+  local: ./@cmake/@ecbuild
+  remote: ../ecbuild.git
+  tag: geos/v1.2.0
+
+NCEP_Shared:
+  local: ./src/Shared/@NCEP_Shared
+  remote: ../NCEP_Shared.git
+  tag: v1.2.0
+  sparse: ./config/NCEP_Shared.sparse
+  develop: main
+
+GMAO_Shared:
+  local: ./src/Shared/@GMAO_Shared
+  remote: ../GMAO_Shared.git
+  tag: v1.6.1
+  sparse: ./config/GMAO_Shared.sparse
+  develop: main
+
+MAPL:
+  local: ./src/Shared/@MAPL
+  remote: ../MAPL.git
+  tag: v2.29.0
+  develop: develop
+
+FMS:
+  local: ./src/Shared/@FMS
+  remote: ../FMS.git
+  tag: geos/2019.01.02+noaff.8
+  develop: geos/release/2019.01
+
+GEOSgcm_GridComp:
+  local: ./src/Components/@GEOSgcm_GridComp
+  remote: ../GEOSgcm_GridComp.git
+  branch: feature/bmauer/modelE_integration
+  sparse: ./config/GEOSgcm_GridComp.sparse
+  develop: develop
+
+GEOSgcm_App:
+  local: ./src/Applications/@GEOSgcm_App
+  remote: ../GEOSgcm_App.git
+  tag: v1.8.0
+  develop: develop
+
+modelE:
+  local: ./src/Components/@GEOSgcm_GridComp/@Model5Eagcm_GridComp
+  remote: simplex.giss.nasa.gov:/giss/gitrepo/modelE.git
+  branch: GEOS_Integration
