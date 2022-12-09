@@ -57,7 +57,9 @@ Note that all this is relative to /Path_to_somewhere/ModelE_Support, basically i
 
 # Building ModelE outside of CMake but using GMAO's baselibs
 
-First you will need to be on a branch that has support for GEOS integration. Assuming point to any GEOS build with the baselibs/modules you want and source g5_modules.
+## Making a Rundeck
+
+First you will need to be on a branch that has support for GEOS integration which currently is `GEOS_integration`. Assuming that point to any GEOS build with the baselibs/modules you want and source g5_modules. If you don't have a build, you could just load the right modules for a particular baselibs and set $BASEDIR to the corresponding baselibs you want to use. In any case, we have added a new .mk file that will point modelE to use the ESMF and NetCDF in our baselibs.
 
 Next we have to make what they call a deck. ModelE compiles the simulation parameters in rather than say configuration this at runtime like modern software. The deck is a configuration file that tells it what model configuration to use and MUST be specified before building. To do this **once again in the decks directory**, issue a command line this:
 ```
@@ -76,10 +78,33 @@ The template is the name of one of the .R files sitting in the templates directo
 So apparently make rundeck copies the .R file with name foo.R to the prod_decks directory with name the name specified by RUN=.
 
 ## Interlude to get inputs
-At this point the official documentation says that after creating the run the user should do this from decks:
+At this point the official documentation says that after creating the run the user should do this from decks if on Discover:
 ```
-../exec/get_input_data -w <RunID>
+../exec/get_input_data <RunID>
 ```
-This will download a lot of files
+Note, do not do the -w option, this will download them and is really,really slow.
 
+This will download a lot of files and does it to the decks directory. **In other words this is downloading to the source code director**. This seems like a really bad idea, will ask if there is a different way to do this.
 
+# Building ModelE inside of GEOS
+To build modelE inside of GEOS we use the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
+
+```
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/include/modelE)
+include(ExternalProject)
+message(INFO "MODELE TEMPLATE: $ENV{ModelE_Template}")
+message(INFO "MODELE RUN: $ENV{ModelE_Run}")
+message(INFO "MODELERC:  $ENV{MODELERC}")
+ExternalProject_Add(modelE
+   PREFIX "modelE"
+   SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/@Model5Eagcm_GridComp/decks
+   DOWNLOAD_COMMAND ""
+   CONFIGURE_COMMAND ""
+   UPDATE_COMMAND ""
+   BUILD_ALWAYS 1
+   BUILD_COMMAND make clean OVERWRITE=YES && make rundeck RUN=$ENV{ModelE_Run} RUNSRC=$ENV{ModelE_Template} OVERWRITE=YES && $(MAKE) gcm RUN=$ENV{ModelE_Run} MAPL=YES OVERWRITE=YES GEOS_BINARY_DIR=${CMAKE_BINARY_DIR}  VERBOSE_OUTPUT=YES MODELERC=$ENV{MODELERC} MPI=YES
+   BUILD_IN_SOURCE 1
+   INSTALL_COMMAND find ../model/ -type f -name "*.a" -exec /bin/cp {} ${CMAKE_BINARY_DIR}/lib $<SEMICOLON> &&  find ../model/ -type f -name "*.mod" -exec /bin/cp {} ${CMAKE_BINARY_DIR}/include/modelE $<SEMICOLON>
+   DEPENDS MAPL
+)
+```
