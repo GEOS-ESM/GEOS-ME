@@ -165,4 +165,8 @@ script which will link in the boundary conditions. To run modelE do:
 ```
 mpirun -np 1 ./geos_run.exe -i I -cold-restart
 ```
-This will coldstart modelE and at the end you should have the modelE restarts fort.1.nc and fort.2.nc. You can also run geos_rununl to remove the boundary condition symlinks.
+This will coldstart modelE and at the end you should have the modelE restarts fort.1.nc and fort.2.nc. You can also run 
+```
+geos_rununl
+```
+to remove the boundary condition symlinks.
