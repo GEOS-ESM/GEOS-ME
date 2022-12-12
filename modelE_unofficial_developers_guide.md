@@ -187,4 +187,4 @@ foo
 
 !somewhere before the next keyword
 ```
-Note the documentation is a bit confusing as it says each section of the rundeck is a keyword, but there's no consistency with how these keywords are. For example boh "Object module:" and "&&PARAMETERS" are keywords but there no particular character that denotes a keyword?
+Note the documentation is a bit confusing as it says each section of the rundeck is a keyword, but there's no consistency with how these keywords are. For example both "Object module:" and "&&PARAMETERS" are keywords but there no particular character that denotes a keyword?
