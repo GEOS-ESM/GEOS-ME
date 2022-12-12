@@ -1,5 +1,5 @@
 # ModelE new Developers Guide for building in the GEOS CMake System
-This is a document for people that wish to build and run modelE but  don't care about the science. This fills in all the holes in the ModelE documentation.
+This is a document for people that wish to build and run modelE but  don't care about the science. This fills in all the holes/confusion in the ModelE documentation.
 # Obtaining ModelE
 If you are on Discover modelE can simply be cloned (assuming you have permission) via this command
 ```
