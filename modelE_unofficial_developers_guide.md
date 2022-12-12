@@ -162,11 +162,11 @@ To run modelE via their script you can do
 Note this will say it is submitting a script but it is not actually. 
 
 # Running ModelE directly
-Note that modelE creates a custom executable for each run. So in the example on this page you would get a geos_run.exe file. To run it directly you can go to /Path_to_somewhere/ModelE_Support/huge_space/geos_run, the 
+Note that modelE creates a custom executable for each run. So in the example on this page you would get a geos_run.exe file. To run it directly you can go to /Path_to_somewhere/ModelE_Support/huge_space/geos_run, then run the 
 ```
 ./geos_runln 
 ```
-script which will link in the boundary conditions. To run modelE do:
+script which will link in the boundary conditions. Note this is an experiment specific script to link the files. From what I can see to just parses the .R file and makes a list of every filename to link puts it in this script. To run modelE do:
 ```
 mpirun -np 1 ./geos_run.exe -i I -cold-restart
 ```
