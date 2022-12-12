@@ -127,7 +127,11 @@ At the end of running make setup you will see this in your ModelE_Support direct
 ```    
 
 # Building ModelE inside of GEOS
-To build modelE inside of GEOS we use the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
+TO build modelE inside of GEOS we have this fixture that can be cloned via:
+```
+git clone git@github.com:GEOS-ESM:GEOS-ME.git
+```
+This builds modelE in the CMake system using the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
 
 ```
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/include/modelE)
