@@ -83,9 +83,18 @@ At this point the official documentation says that after creating the run the us
 ```
 ../exec/get_input_data <RunID>
 ```
-Note, do not do the -w option, this will download them and is really,really slow.
+**DO NOT DO THIS!** If you are on discover, it seems as long as you have yoru GMSSEARTHPATH set it will create the symlinks for the input files in the experiment directory. If you run that it will also copy the files to your decks directory which you do not need. The instructios on the modelE page are a bit confusing here, they make it would like this step is not option.
 
-This copy a lot of files and does it to the decks directory. **In other words this is downloading to the source code director**. This seems like a really bad idea, will ask if there is a different way to do this.
+# Building modelE outside of GEOS.
+Just run this from decks:
+If you just want to build the model you but not setup the experiment you can do:
+```
+make gcm RUN=geos_run MPI=YES MAPL=YES OVERWRITE=YES
+```
+or to build and setup the experiment:
+```
+make setup RUN=geos_run MPI=YES MAPL=YES OVERWRITE=YES
+```
 
 # Building ModelE inside of GEOS
 To build modelE inside of GEOS we use the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
@@ -103,9 +112,18 @@ ExternalProject_Add(modelE
    CONFIGURE_COMMAND ""
    UPDATE_COMMAND ""
    BUILD_ALWAYS 1
-   BUILD_COMMAND make clean OVERWRITE=YES && make rundeck RUN=$ENV{ModelE_Run} RUNSRC=$ENV{ModelE_Template} OVERWRITE=YES && $(MAKE) gcm RUN=$ENV{ModelE_Run} MAPL=YES OVERWRITE=YES GEOS_BINARY_DIR=${CMAKE_BINARY_DIR}  VERBOSE_OUTPUT=YES MODELERC=$ENV{MODELERC} MPI=YES
+   BUILD_COMMAND make clean OVERWRITE=YES && make rundeck RUN=$ENV{ModelE_Run} RUNSRC=$ENV{ModelE_Template} OVERWRITE=YES && $(MAKE) setup RUN=$ENV{ModelE_Run} MAPL=YES OVERWRITE=YES GEOS_BINARY_DIR=${CMAKE_BINARY_DIR}  VERBOSE_OUTPUT=YES MODELERC=$ENV{MODELERC} MPI=YES
    BUILD_IN_SOURCE 1
    INSTALL_COMMAND find ../model/ -type f -name "*.a" -exec /bin/cp {} ${CMAKE_BINARY_DIR}/lib $<SEMICOLON> &&  find ../model/ -type f -name "*.mod" -exec /bin/cp {} ${CMAKE_BINARY_DIR}/include/modelE $<SEMICOLON>
    DEPENDS MAPL
 )
 ```
+# Running ModelE with runE
+Once you have run make setup you should see in your decks directory a symlink to the run directory (in our example this is name is geos_run) under /Path_to_somewhere/ModelE_Support/huge_space/geos_run.
+To run modelE via their script you can do 
+```
+../exec/runE geos_run -cold-restart -np 1
+```
+Note this will say it is submitting a script but it is not actually. 
+
+# Running ModelE directly
