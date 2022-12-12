@@ -175,3 +175,6 @@ This will coldstart modelE and at the end you should have the modelE restarts fo
 geos_rununl
 ```
 to remove the boundary condition symlinks.
+
+
+# Adding new files to ModelE
