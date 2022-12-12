@@ -78,13 +78,14 @@ The template is the name of one of the .R files sitting in the templates directo
 So apparently make rundeck copies the .R file with name foo.R to the prod_decks directory with name the name specified by RUN=.
 
 ## Interlude to get inputs
+**Note to get the input data if you are on Discover you must set GCMSEARTHPATH=/discover/nobackup/projects/giss/prod_input_files.**
 At this point the official documentation says that after creating the run the user should do this from decks if on Discover:
 ```
 ../exec/get_input_data <RunID>
 ```
 Note, do not do the -w option, this will download them and is really,really slow.
 
-This will download a lot of files and does it to the decks directory. **In other words this is downloading to the source code director**. This seems like a really bad idea, will ask if there is a different way to do this.
+This copy a lot of files and does it to the decks directory. **In other words this is downloading to the source code director**. This seems like a really bad idea, will ask if there is a different way to do this.
 
 # Building ModelE inside of GEOS
 To build modelE inside of GEOS we use the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
