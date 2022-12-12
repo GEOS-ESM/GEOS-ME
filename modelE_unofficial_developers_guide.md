@@ -75,7 +75,7 @@ The template is the name of one of the .R files sitting in the templates directo
 ├── prod_input_files
 └── prod_runs
 ```
-So apparently make rundeck copies the .R file with name foo.R to the prod_decks directory with name the name specified by RUN=.
+So apparently make rundeck copies the .R file with name foo.R to the prod_decks directory with name the name specified by RUN=. **In the rest of this document any time you see geos_run, that is the experiment name I'm going to use for simplicity, yours could be whatever you want.**
 
 ## Interlude to get inputs
 **Note to get the input data if you are on Discover you must set GCMSEARTHPATH=/discover/nobackup/projects/giss/prod_input_files.**
@@ -83,7 +83,7 @@ At this point the official documentation says that after creating the run the us
 ```
 ../exec/get_input_data <RunID>
 ```
-**DO NOT DO THIS!** If you are on discover, it seems as long as you have yoru GMSSEARTHPATH set it will create the symlinks for the input files in the experiment directory. If you run that it will also copy the files to your decks directory which you do not need. The instructions on the modelE page are a bit confusing here, they make it sound like this step is not optional but from what I can see it is.
+**DO NOT DO THIS! DO NOT DO THIS !** If you are on discover, it seems as long as you have yoru GMSSEARTHPATH set it will create the symlinks for the input files in the experiment directory. If you run that it will also copy the files to your decks directory which you do not need and can be 100GB! The instructions on the modelE page are a bit confusing here, they make it sound like this step is not optional but from what I can see it is.
 
 # Building modelE outside of GEOS.
 Just run this from decks:
