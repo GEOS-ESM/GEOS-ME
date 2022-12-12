@@ -178,12 +178,12 @@ to remove the boundary condition symlinks.
 
 
 # Adding new files to ModelE
-To add new files to modelE you do not set this in a makefile. Instead you update the **Object moduels:** section of the rundeck/.R file to list new source files. So if you want to add a new .F90 to modelE you would:
+**To add new files to modelE you do not set this in a Makefile.** Instead you update the **Object modules:** section of the rundeck/.R file to list new source files. So if you want to add a new .F90 to modelE you would:
 1. Add the new .F90, .f, .c etc... to the models directory
 2. then add the file to the .R file without the extension. So if you add foo.F90 to models and you want the make system to pick it up, you would add this to the .R file:
 ```
 Object modules:
 foo
 
-!somewhere before the next item taht ends in a :
+!somewhere before the next item that ends in a :
 ```
