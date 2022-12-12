@@ -83,7 +83,7 @@ At this point the official documentation says that after creating the run the us
 ```
 ../exec/get_input_data <RunID>
 ```
-**DO NOT DO THIS!** If you are on discover, it seems as long as you have yoru GMSSEARTHPATH set it will create the symlinks for the input files in the experiment directory. If you run that it will also copy the files to your decks directory which you do not need. The instructios on the modelE page are a bit confusing here, they make it would like this step is not option.
+**DO NOT DO THIS!** If you are on discover, it seems as long as you have yoru GMSSEARTHPATH set it will create the symlinks for the input files in the experiment directory. If you run that it will also copy the files to your decks directory which you do not need. The instructions on the modelE page are a bit confusing here, they make it sound like this step is not optional but from what I can see it is.
 
 # Building modelE outside of GEOS.
 Just run this from decks:
