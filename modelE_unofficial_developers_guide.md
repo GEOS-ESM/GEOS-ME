@@ -103,8 +103,6 @@ At the end of running make setup you will see this in your ModelE_Support direct
 │   └── geos_run
 │       ├── E -> geos_run
 │       ├── flagGoStop
-│       ├── fort.1.nc
-│       ├── fort.2.nc
 │       ├── fort.99
 │       ├── geos_run
 │       ├── geos_run.exe
