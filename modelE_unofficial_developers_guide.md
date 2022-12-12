@@ -53,7 +53,7 @@ CMRUNDIR=/Path_to_somewhere/ModelE_Support/prod_runs
 GCMSEARCHPATH=/Path_to_somewhere/ModelE_Support/prod_input_files
 EXECDIR=/Path_to_somewhere/ModelE_Support/exec
 ```
-Note that all this is relative to /Path_to_somewhere/ModelE_Support, basically it assumes that every will to this common working directory. Maybe this can be split. I will experiment later with this. This should be all you need to set to get things at least built.  **On Discovery you will need to change the GCMSEARCHPATH as detailed in the getting inputs secton!"
+Note that all this is relative to /Path_to_somewhere/ModelE_Support, basically it assumes that every will to this common working directory. Maybe this can be split. I will experiment later with this. This should be all you need to set to get things at least built.  **On Discovery you will need to change the GCMSEARCHPATH as detailed in the getting inputs secton!**
 
 # Building ModelE outside of CMake but using GMAO's baselibs
 
