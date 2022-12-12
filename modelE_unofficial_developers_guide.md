@@ -166,7 +166,7 @@ Note that modelE creates a custom executable for each run. So in the example on 
 ```
 ./geos_runln 
 ```
-script which will link in the boundary conditions. Note this is an experiment specific script to link the files. From what I can see to just parses the .R file and makes a list of every filename to link puts it in this script. To run modelE do:
+script which will link in the boundary conditions. Note this is an experiment specific script to link the files. From what I can see the setup just parses the .R file and makes a list of every filename to link and makes this script. To run modelE do:
 ```
 mpirun -np 1 ./geos_run.exe -i I -cold-restart
 ```
