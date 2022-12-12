@@ -158,7 +158,8 @@ Note this will say it is submitting a script but it is not actually.
 
 # Running ModelE directly
 Note that modelE creates a custom executable for each run. So in the example on this page you would get a geos_run.exe file. To run it directly you can go to /Path_to_somewhere/ModelE_Support/huge_space/geos_run, the 
-```./geos_runln 
+```
+./geos_runln 
 ```
 script which will link in the boundary conditions. To run modelE do:
 ```
