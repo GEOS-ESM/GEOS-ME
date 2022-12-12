@@ -25,7 +25,7 @@ Once you have cloned modelE you will see the following directory tree:
 **The first rule of ModelE is that every command must be issued from the decks directory, repeat that, every command must be issued from the decks directory**
 
 # Setting up ModelE
-Users of more modern software will find the build and structure of ModelE rather strange. Note that ModelE builds in source for example, rather than a modern clean separation of the source code and build. 
+Note that ModelE builds and build in source for example, rather than a modern clean separation of the source code and build. It also assumes you issue runs commands from decks but as you will see later you can avoid this.
 
 The first thing you will need to do is configure your .ModelErc file in your home directory. This is where by default ModelE will look for important settings like what compiler to use, what MPI stack to use, and the modelE support directory where files will be placed such as the run configuration etc. Note that for some reason the run parameters and this path must be known at build time which flies in the face of modern software development.
 
