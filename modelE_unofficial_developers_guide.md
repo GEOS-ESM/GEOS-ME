@@ -3,7 +3,7 @@ This is a document for people that wish to build and run modelE but could care l
 # Obtaining ModelE
 If you are on Discover modelE can simply be cloned (assuming you have permission) via this command
 ```
-simplex.giss.nasa.gov:/giss/gitrepo/modelE.git
+git clone simplex.giss.nasa.gov:/giss/gitrepo/modelE.git
 ```
 Once you have cloned modelE you will see the following directory tree:
 ```
@@ -53,7 +53,7 @@ CMRUNDIR=/Path_to_somewhere/ModelE_Support/prod_runs
 GCMSEARCHPATH=/Path_to_somewhere/ModelE_Support/prod_input_files
 EXECDIR=/Path_to_somewhere/ModelE_Support/exec
 ```
-Note that all this is relative to /Path_to_somewhere/ModelE_Support, basically it assumes that every will to this common working directory. Maybe this can be split. I will experiment later with this. This should be all you need to set to get things at least built. 
+Note that all this is relative to /Path_to_somewhere/ModelE_Support, basically it assumes that every will to this common working directory. Maybe this can be split. I will experiment later with this. This should be all you need to set to get things at least built.  **On Discovery you will need to change the GCMSEARCHPATH as detailed in the getting inputs secton!"
 
 # Building ModelE outside of CMake but using GMAO's baselibs
 
@@ -95,6 +95,38 @@ or to build and setup the experiment:
 ```
 make setup RUN=geos_run MPI=YES MAPL=YES OVERWRITE=YES
 ```
+At the end of running make setup you will see this in your ModelE_Support directory:
+```
+.
+├── exec
+├── huge_space
+│   └── geos_run
+│       ├── E -> geos_run
+│       ├── flagGoStop
+│       ├── fort.1.nc
+│       ├── fort.2.nc
+│       ├── fort.99
+│       ├── geos_run
+│       ├── geos_run.exe
+│       ├── geos_runln
+│       ├── geos_run.PRT
+│       ├── geos_run.qsub
+│       ├── geos_runuln
+│       ├── I
+│       ├── Ibp
+│       ├── Iij
+│       ├── Ijk
+│       ├── modules
+│       ├── PARTIAL.accgeos_run.nc
+│       ├── run_status
+│       ├── runtime_opts
+│       └── warn_lakes
+├── prod_decks
+│   └── geos_run.R
+├── prod_input_files
+└── prod_runs
+    └── geos_run -> /discover/nobackup/bmauer/ModelE_Support/huge_space/geos_run
+```    
 
 # Building ModelE inside of GEOS
 To build modelE inside of GEOS we use the external_project command of CMake. The following block of code will setup a rundeck and build modelE in CMake
