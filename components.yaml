@@ -73,4 +73,4 @@ GEOSgcm_App:
 modelE:
   local: ./src/Components/@GEOSgcm_GridComp/@Model5Eagcm_GridComp
   remote: simplex.giss.nasa.gov:/giss/gitrepo/modelE.git
-  branch: GEOS_integration
+  branch: GEOS_integration_E2.1_branch
