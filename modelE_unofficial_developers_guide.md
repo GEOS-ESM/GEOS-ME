@@ -176,6 +176,9 @@ geos_rununl
 ```
 to remove the boundary condition symlinks.
 
+# Adjusting runtime for ModelE
+
+When coldstarting modelE the INPUTZ_cold section of the in file "I" must be modiied. This runs from the start date, which is specified in the INPUTZ section of the "I" file, to the date setn in the INPUZ_cold section.
 
 # Adding new files to ModelE
 **To add new files to modelE you do not set this in a Makefile.** Instead you update the **Object modules:** section of the rundeck/.R file to list new source files. So if you want to add a new .F90 to modelE you would:
